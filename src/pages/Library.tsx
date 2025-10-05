@@ -1,175 +1,214 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Search, BookOpen, ExternalLink } from "lucide-react";
-
-const standards = [
-  {
-    id: "pmbok",
-    name: "PMBOK 7",
-    fullName: "Project Management Body of Knowledge (7th Edition)",
-    color: "pmbok",
-    description: "PMBOK 7 represents a shift from process-based to principles-based project management. It focuses on delivering value through eight project performance domains and twelve principles.",
-    keyPoints: [
-      "Principles-based approach",
-      "Eight performance domains",
-      "Twelve guiding principles",
-      "Focus on value delivery",
-      "Adaptable to any delivery approach"
-    ],
-    topics: [
-      "Stakeholder Performance Domain",
-      "Team Performance Domain",
-      "Development Approach & Life Cycle",
-      "Planning Performance Domain",
-      "Project Work Performance Domain",
-      "Delivery Performance Domain",
-      "Measurement Performance Domain",
-      "Uncertainty Performance Domain"
-    ]
-  },
-  {
-    id: "prince2",
-    name: "PRINCE2",
-    fullName: "Projects IN Controlled Environments",
-    color: "prince2",
-    description: "PRINCE2 is a process-based method that provides a structured approach to project management. It emphasizes dividing projects into manageable stages with defined roles and responsibilities.",
-    keyPoints: [
-      "Process-based methodology",
-      "Seven principles, themes, and processes",
-      "Defined roles and responsibilities",
-      "Stage-based control",
-      "Emphasis on business justification"
-    ],
-    topics: [
-      "Business Case",
-      "Organization Theme",
-      "Quality Management",
-      "Plans and Planning",
-      "Risk Management",
-      "Change Control",
-      "Progress Monitoring"
-    ]
-  },
-  {
-    id: "iso",
-    name: "ISO 21500/21502",
-    fullName: "ISO Standards for Project & Portfolio Management",
-    color: "iso",
-    description: "ISO 21500 provides international guidance on project management, while ISO 21502 extends this to project portfolio management. These standards offer a universal framework applicable across industries.",
-    keyPoints: [
-      "International standard framework",
-      "Applicable to any organization",
-      "Portfolio and project alignment",
-      "Governance emphasis",
-      "Complements other methodologies"
-    ],
-    topics: [
-      "Integration Management",
-      "Stakeholder Management",
-      "Scope Management",
-      "Resource Management",
-      "Time Management",
-      "Cost Management",
-      "Risk Management",
-      "Quality Management"
-    ]
-  }
-];
+import { Search, BookOpen, ChevronRight, Bookmark } from "lucide-react";
+import { useSearch } from "@/contexts/SearchContext";
+import standardsData from "@/data/standards-data.json";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Library = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const { standardId, sectionId } = useParams();
+  const navigate = useNavigate();
+  const { searchQuery, setSearchQuery, searchResults, performSearch } = useSearch();
+  const [bookmarks, setBookmarks] = useState<string[]>([]);
+  const [selectedStandard, setSelectedStandard] = useState(standardId || "pmbok");
+  const [selectedSection, setSelectedSection] = useState<string | null>(sectionId || null);
 
-  const filteredStandards = standards.filter(standard =>
-    standard.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    standard.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    standard.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    standard.topics.some(topic => topic.toLowerCase().includes(searchQuery.toLowerCase()))
-  );
+  useEffect(() => {
+    if (standardId && sectionId) {
+      setSelectedStandard(standardId);
+      setSelectedSection(sectionId);
+      // Scroll to section
+      setTimeout(() => {
+        const element = document.getElementById(`section-${sectionId}`);
+        element?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [standardId, sectionId]);
+
+  const standards: any = standardsData;
+  const currentStandard = standards[selectedStandard];
+
+  const toggleBookmark = (id: string) => {
+    setBookmarks((prev) =>
+      prev.includes(id) ? prev.filter((b) => b !== id) : [...prev, id]
+    );
+  };
+
+  const handleSectionClick = (stdId: string, secId: string) => {
+    setSelectedSection(secId);
+    navigate(`/library/${stdId}/${secId}`);
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
         <h1 className="mb-2 text-3xl font-bold text-foreground">Standards Library</h1>
         <p className="text-muted-foreground">
-          Explore the three major project management standards and their key concepts
+          Explore comprehensive project management standards with full content and deep linking
         </p>
       </div>
 
       {/* Search Bar */}
-      <div className="mb-8">
+      <div className="mb-6">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
-            placeholder="Search standards, topics, or keywords..."
+            placeholder="Search across all standards... (e.g., 'risk management', 'stakeholder')"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              performSearch(e.target.value);
+            }}
             className="pl-10"
           />
         </div>
-      </div>
 
-      {/* Standards Cards */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {filteredStandards.map((standard) => (
-          <Card key={standard.id} className="flex flex-col transition-shadow hover:shadow-lg">
+        {/* Search Results */}
+        {searchResults.length > 0 && (
+          <Card className="mt-4">
             <CardHeader>
-              <div className="mb-2 flex items-center justify-between">
-                <Badge 
-                  className={`bg-${standard.color} text-${standard.color}-foreground`}
-                >
-                  {standard.name}
-                </Badge>
-                <BookOpen className="h-5 w-5 text-muted-foreground" />
-              </div>
-              <CardTitle className="text-xl">{standard.fullName}</CardTitle>
-              <CardDescription>{standard.description}</CardDescription>
+              <CardTitle className="text-lg">Search Results ({searchResults.length})</CardTitle>
             </CardHeader>
-            <CardContent className="flex-1">
-              <div className="mb-4">
-                <h4 className="mb-2 text-sm font-semibold text-foreground">Key Points:</h4>
-                <ul className="space-y-1 text-sm text-muted-foreground">
-                  {standard.keyPoints.map((point, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+            <CardContent>
+              <div className="space-y-3">
+                {searchResults.slice(0, 10).map((result, index) => (
+                  <div
+                    key={index}
+                    className="cursor-pointer rounded-lg border p-3 transition-colors hover:bg-muted"
+                    onClick={() => handleSectionClick(result.standardId, result.sectionId)}
+                  >
+                    <div className="mb-1 flex items-center gap-2">
+                      <Badge className={`bg-${result.standardId}`}>
+                        {result.standardName}
+                      </Badge>
+                      <ChevronRight className="h-4 w-4" />
+                      <span className="font-medium text-sm">{result.sectionTitle}</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground line-clamp-2">{result.excerpt}</p>
+                  </div>
+                ))}
               </div>
-              
-              <div className="mb-4">
-                <h4 className="mb-2 text-sm font-semibold text-foreground">Main Topics:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {standard.topics.slice(0, 4).map((topic, index) => (
-                    <Badge key={index} variant="secondary" className="text-xs">
-                      {topic}
-                    </Badge>
-                  ))}
-                  {standard.topics.length > 4 && (
-                    <Badge variant="outline" className="text-xs">
-                      +{standard.topics.length - 4} more
-                    </Badge>
-                  )}
-                </div>
-              </div>
-
-              <Button variant="outline" size="sm" className="w-full gap-2">
-                <ExternalLink className="h-4 w-4" />
-                View Full Standard
-              </Button>
             </CardContent>
           </Card>
-        ))}
+        )}
       </div>
 
-      {filteredStandards.length === 0 && (
-        <div className="py-12 text-center">
-          <p className="text-muted-foreground">No standards found matching your search.</p>
-        </div>
-      )}
+      {/* Standards Tabs */}
+      <Tabs value={selectedStandard} onValueChange={setSelectedStandard}>
+        <TabsList className="mb-6">
+          <TabsTrigger value="pmbok">PMBOK 7</TabsTrigger>
+          <TabsTrigger value="prince2">PRINCE2</TabsTrigger>
+          <TabsTrigger value="iso">ISO 21500</TabsTrigger>
+        </TabsList>
+
+        {Object.entries(standards).map(([stdId, stdData]: [string, any]) => (
+          <TabsContent key={stdId} value={stdId}>
+            <div className="grid gap-6 lg:grid-cols-3">
+              {/* Sidebar - Table of Contents */}
+              <div className="lg:col-span-1">
+                <Card className="sticky top-20">
+                  <CardHeader>
+                    <CardTitle className="text-lg">Contents</CardTitle>
+                    <CardDescription>{stdData.fullName}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <nav className="space-y-2">
+                      {Object.entries(stdData.sections).map(([secId, section]: [string, any]) => (
+                        <button
+                          key={secId}
+                          onClick={() => handleSectionClick(stdId, secId)}
+                          className={`flex w-full items-center justify-between rounded-lg p-2 text-left text-sm transition-colors hover:bg-muted ${
+                            selectedSection === secId ? "bg-muted font-medium" : ""
+                          }`}
+                        >
+                          <span className="flex items-center gap-2">
+                            <BookOpen className="h-4 w-4" />
+                            {section.title}
+                          </span>
+                          {bookmarks.includes(`${stdId}-${secId}`) && (
+                            <Bookmark className="h-4 w-4 fill-primary text-primary" />
+                          )}
+                        </button>
+                      ))}
+                    </nav>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Main Content */}
+              <div className="space-y-6 lg:col-span-2">
+                {Object.entries(stdData.sections).map(([secId, section]: [string, any]) => (
+                  <Card key={secId} id={`section-${secId}`} className="scroll-mt-20">
+                    <CardHeader>
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <Badge className={`mb-2 bg-${stdId}`}>{stdData.name}</Badge>
+                          <CardTitle className="text-xl">{section.title}</CardTitle>
+                        </div>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => toggleBookmark(`${stdId}-${secId}`)}
+                        >
+                          <Bookmark
+                            className={`h-5 w-5 ${
+                              bookmarks.includes(`${stdId}-${secId}`)
+                                ? "fill-primary text-primary"
+                                : ""
+                            }`}
+                          />
+                        </Button>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div>
+                        <p className="text-sm leading-relaxed text-foreground">{section.content}</p>
+                      </div>
+
+                      <div>
+                        <h4 className="mb-2 text-sm font-semibold text-foreground">Key Points:</h4>
+                        <ul className="space-y-2">
+                          {section.keyPoints.map((point: string, index: number) => (
+                            <li key={index} className="flex items-start gap-2 text-sm">
+                              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                              <span className="text-muted-foreground">{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h4 className="mb-2 text-sm font-semibold text-foreground">
+                          Key Practices:
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {section.practices.map((practice: string, index: number) => (
+                            <Badge key={index} variant="secondary" className="text-xs">
+                              {practice}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex gap-2 pt-2">
+                        <Link to={`/compare?topic=${secId}`}>
+                          <Button variant="outline" size="sm">
+                            Compare with Other Standards
+                          </Button>
+                        </Link>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </TabsContent>
+        ))}
+      </Tabs>
     </div>
   );
 };

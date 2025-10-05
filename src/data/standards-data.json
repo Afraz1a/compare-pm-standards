@@ -1,0 +1,311 @@
+{
+  "pmbok": {
+    "id": "pmbok",
+    "name": "PMBOK 7",
+    "fullName": "Project Management Body of Knowledge (7th Edition)",
+    "color": "pmbok",
+    "sections": {
+      "stakeholder-engagement": {
+        "id": "stakeholder-engagement",
+        "title": "Stakeholder Performance Domain",
+        "content": "The Stakeholder Performance Domain addresses activities and functions associated with stakeholders. Effective stakeholder engagement helps the project team to build and sustain strong relationships with stakeholders throughout the project life cycle. This domain emphasizes continuous engagement to understand stakeholder needs, manage expectations, address concerns, and foster stakeholder support for the project. Key practices include identifying all stakeholders early, analyzing their interests and influence, developing engagement strategies, and maintaining effective communication channels. The domain recognizes that stakeholder satisfaction is a key measure of project success and that engaged stakeholders are more likely to contribute positively to project outcomes.",
+        "keyPoints": [
+          "Proactive identification of all stakeholders",
+          "Continuous engagement throughout project lifecycle",
+          "Understanding stakeholder needs and expectations",
+          "Building and maintaining stakeholder relationships",
+          "Managing stakeholder influence on project decisions"
+        ],
+        "practices": [
+          "Stakeholder identification and analysis",
+          "Engagement strategy development",
+          "Regular communication and feedback loops",
+          "Expectation management and alignment",
+          "Conflict resolution and negotiation"
+        ]
+      },
+      "risk-management": {
+        "id": "risk-management",
+        "title": "Uncertainty Performance Domain",
+        "content": "The Uncertainty Performance Domain addresses activities and functions associated with risk and uncertainty. Projects operate in environments of uncertainty, and this domain focuses on how project teams identify, assess, and respond to threats and opportunities. PMBOK 7 emphasizes a proactive approach to uncertainty, encouraging teams to embrace uncertainty as both a source of risk and opportunity. Key activities include risk identification, qualitative and quantitative risk analysis, risk response planning, and ongoing risk monitoring. The domain promotes adaptive planning and resilience, recognizing that uncertainty is inherent in all projects and must be managed continuously rather than as a one-time activity.",
+        "keyPoints": [
+          "Proactive identification of risks and opportunities",
+          "Continuous risk assessment throughout project",
+          "Adaptive response strategies for uncertainty",
+          "Balance between threats and opportunities",
+          "Integration of risk management with all performance domains"
+        ],
+        "practices": [
+          "Risk identification workshops and techniques",
+          "Qualitative and quantitative risk analysis",
+          "Risk response strategy development",
+          "Risk monitoring and control",
+          "Opportunity exploitation and enhancement"
+        ]
+      },
+      "quality-management": {
+        "id": "quality-management",
+        "title": "Project Work Performance Domain",
+        "content": "Quality management in PMBOK 7 is integrated within the Project Work Performance Domain. This domain addresses activities and functions associated with establishing project processes, managing physical resources, and fostering a learning environment throughout the project. Quality is embedded in all project activities rather than being treated as a separate concern. The approach emphasizes that quality must be built into deliverables and processes from the beginning, not inspected in at the end. Key aspects include establishing quality standards, implementing quality assurance practices, performing quality control, and continuously improving processes based on lessons learned and feedback.",
+        "keyPoints": [
+          "Quality embedded in all project activities",
+          "Prevention over inspection approach",
+          "Continuous quality improvement mindset",
+          "Integration with other performance domains",
+          "Focus on both product and process quality"
+        ],
+        "practices": [
+          "Quality planning and standards definition",
+          "Quality assurance activities",
+          "Quality control and testing",
+          "Process improvement initiatives",
+          "Lessons learned integration"
+        ]
+      },
+      "change-management": {
+        "id": "change-management",
+        "title": "Change Management in Project Work Domain",
+        "content": "Change management in PMBOK 7 is addressed within the Project Work Performance Domain, emphasizing an adaptive and flexible approach. The framework recognizes that change is inevitable in projects and should be managed in a way that supports project value delivery. Rather than rigid change control processes, PMBOK 7 promotes adaptive approaches that balance the need for stability with the need for flexibility. Key considerations include assessing the impact of changes on project objectives, engaging stakeholders in change decisions, maintaining configuration control, and ensuring that changes align with value delivery goals. The approach varies based on project context, with more adaptive projects embracing change more readily than predictive projects.",
+        "keyPoints": [
+          "Adaptive approach to managing change",
+          "Balance between stability and flexibility",
+          "Impact assessment on project value",
+          "Stakeholder engagement in change decisions",
+          "Context-appropriate change processes"
+        ],
+        "practices": [
+          "Change impact assessment",
+          "Change request evaluation",
+          "Configuration management",
+          "Stakeholder communication about changes",
+          "Value-based change prioritization"
+        ]
+      },
+      "governance": {
+        "id": "governance",
+        "title": "Project Governance Framework",
+        "content": "PMBOK 7 adopts a principles-based approach to project governance, emphasizing value-driven decision making and adaptive oversight. Rather than prescribing specific governance structures, it provides principles that guide governance activities. The framework recognizes that governance should be tailored to organizational context, project complexity, and stakeholder needs. Key principles include stewardship, accountability, transparency, and ethics. Governance activities include project oversight, decision-making frameworks, compliance monitoring, and alignment with organizational strategy. The approach emphasizes that governance should enable rather than constrain project teams, providing the right level of oversight without creating unnecessary bureaucracy.",
+        "keyPoints": [
+          "Principles-based governance approach",
+          "Value-driven decision making",
+          "Tailored to organizational context",
+          "Balance of oversight and enablement",
+          "Alignment with organizational strategy"
+        ],
+        "practices": [
+          "Governance framework establishment",
+          "Decision-making authority definition",
+          "Performance monitoring and reporting",
+          "Compliance and ethics oversight",
+          "Strategic alignment verification"
+        ]
+      }
+    }
+  },
+  "prince2": {
+    "id": "prince2",
+    "name": "PRINCE2",
+    "fullName": "Projects IN Controlled Environments",
+    "color": "prince2",
+    "sections": {
+      "stakeholder-engagement": {
+        "id": "stakeholder-engagement",
+        "title": "Organization Theme and Communication Management",
+        "content": "PRINCE2 addresses stakeholder engagement primarily through the Organization Theme and Communication Management Strategy. The Organization Theme defines the project management team structure, including roles and responsibilities for all stakeholders. PRINCE2 emphasizes clear role definition with explicit accountability, including the Project Board (executive, senior user, senior supplier), Project Manager, and Team Managers. Communication strategies are formalized to ensure all stakeholders receive appropriate information at the right time. The approach is more structured than other frameworks, with defined communication channels and formal reporting mechanisms. Stakeholder interests are represented through designated roles, particularly the Senior User who represents those who will use the project's products.",
+        "keyPoints": [
+          "Formal role definition for all stakeholders",
+          "Project Board structure for governance",
+          "Structured communication strategies",
+          "Clear accountability and responsibility assignment",
+          "User representation through Senior User role"
+        ],
+        "practices": [
+          "Organization structure definition",
+          "Role description documentation",
+          "Communication Management Strategy creation",
+          "Stakeholder register maintenance",
+          "Regular reporting through defined channels"
+        ]
+      },
+      "risk-management": {
+        "id": "risk-management",
+        "title": "Risk Theme",
+        "content": "PRINCE2 treats risk management as a dedicated theme with formal procedures and documentation requirements. The Risk Theme provides a framework for identifying, assessing, and controlling uncertainty throughout the project lifecycle. Central to this theme is the Risk Register, a formal document that records all identified risks, their assessment, and planned responses. PRINCE2 requires regular risk reviews at defined points in the project, particularly at stage boundaries. The approach emphasizes risk ownership, with each identified risk assigned to a specific individual responsible for managing it. Risk management is integrated with other themes, particularly Quality (where risks relate to product quality) and Change (where risks may trigger changes). The framework provides risk tolerance levels that guide decision-making about risk responses.",
+        "keyPoints": [
+          "Dedicated Risk Theme with formal procedures",
+          "Risk Register as central document",
+          "Regular review cycles and stage gates",
+          "Clear risk ownership assignment",
+          "Integration with other themes and processes"
+        ],
+        "practices": [
+          "Risk identification workshops",
+          "Risk Register creation and maintenance",
+          "Risk assessment (probability and impact)",
+          "Risk response planning and implementation",
+          "Risk review at stage boundaries"
+        ]
+      },
+      "quality-management": {
+        "id": "quality-management",
+        "title": "Quality Theme",
+        "content": "The Quality Theme in PRINCE2 provides a comprehensive framework for ensuring that project products meet required standards and are fit for purpose. This theme emphasizes quality planning, quality control, and quality assurance as distinct but related activities. Quality planning involves defining quality criteria for all products, documented in Product Descriptions that specify quality requirements, quality methods, and quality responsibilities. Quality control focuses on checking that products meet their quality criteria, while quality assurance provides independent verification that project processes are being followed correctly. PRINCE2 requires a Quality Management Strategy that defines the quality techniques, standards, and responsibilities to be used. Quality reviews and inspections are formal activities with defined roles and procedures, ensuring thorough examination of products before acceptance.",
+        "keyPoints": [
+          "Dedicated Quality Theme with formal procedures",
+          "Separation of quality planning, control, and assurance",
+          "Product Descriptions defining quality criteria",
+          "Quality Management Strategy document",
+          "Formal quality review procedures"
+        ],
+        "practices": [
+          "Quality Management Strategy creation",
+          "Product Description documentation",
+          "Quality review and inspection activities",
+          "Quality audit and assurance checks",
+          "Acceptance criteria definition and verification"
+        ]
+      },
+      "change-management": {
+        "id": "change-management",
+        "title": "Change Theme",
+        "content": "PRINCE2's Change Theme provides formal procedures for controlling changes to project baselines, including scope, time, cost, and quality. The theme ensures that the impact of potential changes is understood before decisions are made about their implementation. Central to this theme is the Configuration Management System, which maintains information about project products and their relationships. All change requests are formally captured, assessed for impact, and then approved or rejected by the appropriate authority level. PRINCE2 defines clear approval authorities based on change tolerance levels - minor changes may be approved by the Project Manager, while significant changes require Project Board approval. Issue and Change Control procedures ensure that all changes are tracked, and their impacts are assessed against project baselines and business case. This structured approach prevents scope creep and ensures project control.",
+        "keyPoints": [
+          "Dedicated Change Theme with formal procedures",
+          "Configuration Management System for product control",
+          "Formal change request and approval process",
+          "Clear approval authorities based on tolerance",
+          "Impact assessment against baselines and business case"
+        ],
+        "practices": [
+          "Issue and change capture",
+          "Impact analysis and assessment",
+          "Change approval process by authority level",
+          "Configuration management and version control",
+          "Change implementation and tracking"
+        ]
+      },
+      "governance": {
+        "id": "governance",
+        "title": "Project Board Governance and Stage Gates",
+        "content": "PRINCE2 governance is central to its methodology, featuring a defined Project Board structure and stage-based control. The Project Board, consisting of Executive, Senior User, and Senior Supplier roles, provides strategic direction and key decisions for the project. Governance is implemented through management stages, with formal stage boundaries requiring Project Board approval to proceed. At each stage boundary, the Project Manager prepares an End Stage Report and a Plan for the next stage, which the Project Board reviews before authorizing continuation. This provides regular decision points where the project's viability is assessed against its Business Case. Exception management allows the Project Manager to escalate issues that exceed defined tolerances to the Project Board for decision. This governance structure ensures appropriate oversight while maintaining clear accountability and decision-making authority.",
+        "keyPoints": [
+          "Formal Project Board structure with defined roles",
+          "Stage-based control with mandatory gates",
+          "Business Case drives all decisions",
+          "Exception management for tolerance breaches",
+          "Clear accountability and authority levels"
+        ],
+        "practices": [
+          "Project Board formation and role assignment",
+          "Stage planning and authorization",
+          "End Stage Reports and reviews",
+          "Exception reporting and escalation",
+          "Business Case review and updates"
+        ]
+      }
+    }
+  },
+  "iso": {
+    "id": "iso",
+    "name": "ISO 21500",
+    "fullName": "ISO 21500:2021 - Project, Programme and Portfolio Management",
+    "color": "iso",
+    "sections": {
+      "stakeholder-engagement": {
+        "id": "stakeholder-engagement",
+        "title": "Stakeholder Management Process",
+        "content": "ISO 21500 addresses stakeholder management as a distinct process within its framework, emphasizing systematic identification, analysis, and engagement. The standard recognizes stakeholders as individuals, groups, or organizations that may affect, be affected by, or perceive themselves to be affected by a decision, activity, or outcome of a project. The stakeholder management process includes identifying all relevant stakeholders, analyzing their interests, expectations, influence, and potential impact on the project, and developing appropriate engagement strategies. ISO 21500 emphasizes documentation of stakeholder requirements and maintenance of stakeholder registers. The approach is adaptable to different organizational contexts while maintaining core principles of systematic stakeholder identification and engagement planning.",
+        "keyPoints": [
+          "Systematic stakeholder identification process",
+          "Analysis of stakeholder interests and influence",
+          "Documentation in stakeholder registers",
+          "Engagement strategy development",
+          "Alignment with organizational governance"
+        ],
+        "practices": [
+          "Stakeholder identification workshops",
+          "Stakeholder analysis and mapping",
+          "Stakeholder register creation and maintenance",
+          "Engagement planning and execution",
+          "Regular stakeholder communication"
+        ]
+      },
+      "risk-management": {
+        "id": "risk-management",
+        "title": "Risk Management Process",
+        "content": "ISO 21500 presents risk management as a systematic process integrated throughout the project lifecycle. The standard defines risk as an uncertain event or condition that, if it occurs, has a positive or negative effect on project objectives. Risk management in ISO 21500 includes planning how risk management will be conducted, identifying risks, performing qualitative and quantitative risk analysis, planning risk responses, and monitoring and controlling risks. The standard emphasizes that risk management should be iterative and ongoing, with regular reviews and updates throughout the project. It promotes a balanced view of risks, considering both threats (negative risks) and opportunities (positive risks). The framework encourages organizations to establish risk thresholds and tolerance levels that guide decision-making about risk responses. Integration with other processes ensures that risk considerations inform all project decisions.",
+        "keyPoints": [
+          "Systematic risk management process",
+          "Balance of threats and opportunities",
+          "Iterative and ongoing risk activities",
+          "Risk threshold and tolerance definition",
+          "Integration with project decision-making"
+        ],
+        "practices": [
+          "Risk management planning",
+          "Risk identification techniques",
+          "Qualitative and quantitative analysis",
+          "Risk response strategy selection",
+          "Risk monitoring and control activities"
+        ]
+      },
+      "quality-management": {
+        "id": "quality-management",
+        "title": "Quality Management Process",
+        "content": "ISO 21500's approach to quality management aligns with ISO 9001 principles, emphasizing quality planning, assurance, and control as integrated processes. The standard defines quality as the degree to which a set of inherent characteristics of an object fulfills requirements. Quality management includes establishing quality policies and objectives, planning quality requirements and standards, performing quality assurance to build confidence, and conducting quality control to verify compliance. The framework emphasizes prevention over inspection, continuous improvement, and customer satisfaction. Quality planning defines what quality means for the specific project, including quality standards, criteria, and methods for measurement. Quality assurance activities provide confidence that quality requirements will be fulfilled, while quality control involves monitoring and recording results to assess performance and recommend changes.",
+        "keyPoints": [
+          "Alignment with ISO 9001 quality principles",
+          "Integration of planning, assurance, and control",
+          "Prevention-focused approach",
+          "Continuous improvement emphasis",
+          "Customer satisfaction as key metric"
+        ],
+        "practices": [
+          "Quality planning and standards definition",
+          "Quality assurance activities and audits",
+          "Quality control measurements and testing",
+          "Process improvement initiatives",
+          "Quality documentation and reporting"
+        ]
+      },
+      "change-management": {
+        "id": "change-management",
+        "title": "Integrated Change Control Process",
+        "content": "ISO 21500 addresses change management through its integrated change control process, which ensures that all changes to project baselines are properly identified, evaluated, approved, and implemented. The standard recognizes that changes are inevitable in projects and provides a framework for managing them systematically. Integrated change control involves reviewing all change requests, approving changes, and managing changes to deliverables, organizational process assets, project documents, and the project management plan. The process ensures that the impact of changes is assessed holistically, considering effects on scope, schedule, cost, quality, resources, and risks. Configuration management, closely related to change control, maintains consistency of the project's performance and functional characteristics with its requirements, design, and operational information throughout the project lifecycle.",
+        "keyPoints": [
+          "Integrated approach to change control",
+          "Holistic impact assessment of changes",
+          "Formal change request and approval process",
+          "Configuration management integration",
+          "Documentation and tracking of all changes"
+        ],
+        "practices": [
+          "Change request submission and logging",
+          "Integrated impact analysis",
+          "Change approval by appropriate authority",
+          "Change implementation and verification",
+          "Configuration status accounting"
+        ]
+      },
+      "governance": {
+        "id": "governance",
+        "title": "Governance Framework and Organizational Context",
+        "content": "ISO 21500 emphasizes project governance within the broader context of organizational governance, recognizing that projects must align with organizational strategy and comply with governance requirements. The standard defines governance as the framework within which authority is exercised in organizations, including projects, programmes, and portfolios. Project governance provides direction, establishes objectives, monitors performance, and ensures compliance with relevant standards and regulations. The framework emphasizes that governance structures should be appropriate to the organization's context, size, and complexity. Key governance elements include clear roles and responsibilities, decision-making frameworks, performance monitoring mechanisms, and assurance processes. ISO 21500 promotes the concept of proportionate governance - governance should be appropriate to the project's scale and complexity, avoiding excessive bureaucracy while ensuring adequate oversight and control.",
+        "keyPoints": [
+          "Governance within organizational context",
+          "Alignment with organizational strategy",
+          "Proportionate governance approach",
+          "Clear roles and decision-making frameworks",
+          "Compliance with standards and regulations"
+        ],
+        "practices": [
+          "Governance framework establishment",
+          "Authority and responsibility definition",
+          "Performance monitoring and reporting",
+          "Compliance verification and assurance",
+          "Strategic alignment assessment"
+        ]
+      }
+    }
+  }
+}

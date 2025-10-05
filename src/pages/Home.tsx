@@ -1,9 +1,21 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { BookOpen, GitCompare, BarChart3, CheckCircle } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { BookOpen, GitCompare, BarChart3, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
+import { getTopicsList } from "@/utils/comparison-utils";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const [selectedTopic, setSelectedTopic] = useState("stakeholder-engagement");
+  const topics = getTopicsList();
+
+  const handleCompare = () => {
+    navigate(`/compare?topic=${selectedTopic}`);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -27,6 +39,31 @@ const Home = () => {
               methodologies, and insights to find the best approach for your projects.
             </p>
             
+            {/* Quick Compare */}
+            <Card className="mx-auto mb-6 max-w-xl">
+              <CardContent className="pt-6">
+                <label className="mb-2 block text-left text-sm font-medium">Quick Compare</label>
+                <div className="flex gap-2">
+                  <Select value={selectedTopic} onValueChange={setSelectedTopic}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {topics.map((topic) => (
+                        <SelectItem key={topic.id} value={topic.id}>
+                          {topic.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <Button onClick={handleCompare} className="gap-2">
+                    Compare
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Link to="/library">
                 <Button size="lg" className="w-full gap-2 sm:w-auto">
@@ -115,7 +152,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="text-center">
-                <div className="mb-2 text-4xl font-bold text-accent">10+</div>
+                <div className="mb-2 text-4xl font-bold text-accent">5</div>
                 <div className="text-sm uppercase tracking-wide text-muted-foreground">
                   Key Topics Covered
                 </div>
